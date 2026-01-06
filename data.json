@@ -33,20 +33,28 @@
             "duration": "2021 - Present",
             "location": "San Francisco, CA",
             "description": [
-                "Led a team of 5 developers in redesigning the core product dashboard.",
-                "Improved site performance by 40% through code splitting and lazy loading.",
-                "Mentored junior developers and established code quality standards."
+                "Leading the frontend team.",
+                "Optimizing React performance."
             ]
         },
         {
-            "company": "Creative Agency",
-            "role": "Web Developer",
+            "company": "Alpha Corp",
+            "role": "Full Stack Engineer",
             "duration": "2018 - 2021",
             "location": "New York, NY",
             "description": [
-                "Developed responsive websites for high-profile clients.",
-                "Collaborated with designers to implement pixel-perfect UIs.",
-                "Integrated third-party APIs for payment processing and data visualization."
+                "Migrated monolith to microservices.",
+                "Implemented CI/CD pipelines."
+            ]
+        },
+        {
+            "company": "Beta Systems",
+            "role": "Backend Developer",
+            "duration": "2016 - 2018",
+            "location": "Austin, TX",
+            "description": [
+                "Designed scalable APIs.",
+                "Managed PostgreSQL databases."
             ]
         }
     ],
@@ -59,34 +67,53 @@
         }
     ],
     "skills": [
-        "JavaScript (ES6+)",
+        "JavaScript",
         "React",
         "Node.js",
-        "HTML5 & CSS3",
         "Python",
         "AWS",
         "Docker",
-        "Git"
+        "Git",
+        "CI/CD"
     ],
     "projects": [
         {
+            "title": "Loan Prediction System",
+            "description": "AI for loan approval.",
+            "technologies": [
+                "Python",
+                "ML",
+                "Hugging Face"
+            ],
+            "link": "https://rsnarsna-loan-prediction-system.hf.space",
+            "github": "#"
+        },
+        {
             "title": "E-commerce Platform",
-            "description": "A full-featured online store built with Next.js and Stripe.",
+            "description": "Online store with Stripe.",
             "technologies": [
                 "Next.js",
-                "Stripe",
-                "Tailwind CSS"
+                "Stripe"
             ],
             "link": "#",
             "github": "#"
         },
         {
             "title": "Task Manager App",
-            "description": "A productivity app with drag-and-drop support.",
+            "description": "Productivity tool.",
             "technologies": [
                 "React",
-                "Firebase",
-                "Redux"
+                "Firebase"
+            ],
+            "link": "#",
+            "github": "#"
+        },
+        {
+            "title": "Weather Dashboard",
+            "description": "Live weather updates.",
+            "technologies": [
+                "OpenWeatherAPI",
+                "JS"
             ],
             "link": "#",
             "github": "#"

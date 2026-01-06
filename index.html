@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV | Alex Developer</title>
     <!-- SEO & Meta Tags -->
-    <meta name="description"
-        content="Professional CV and Portfolio of a Full Stack Engineer. View my experience, skills, and projects.">
+    <meta name="description" content="Professional CV and Portfolio of a Full Stack Engineer. View my experience, skills, and projects.">
     <meta name="author" content="Alex Developer">
     <meta name="keywords" content="CV, Resume, Portfolio, Web Developer, Full Stack Engineer">
-
+    
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourusername.github.io/my-cv/">
     <meta property="og:title" content="Alex Developer - Full Stack Engineer">
-    <meta property="og:description"
-        content="Passionate developer building scalable web applications. Check out my interactive CV.">
+    <meta property="og:description" content="Passionate developer building scalable web applications. Check out my interactive CV.">
     <meta property="og:image" content="profile.png">
 
     <!-- Twitter -->
@@ -31,26 +28,24 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">Alex<span class="dot">.</span></a>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Resume</a></li>
+                <li><a href="#projects">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-socials" id="nav-socials">
@@ -62,8 +57,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Diagonal Background -->
     <section id="home" class="hero-section">
+        <div class="shape-overlay"></div>
         <div class="hero-container">
             <div class="hero-text">
                 <span class="greeting">Welcome to my world</span>
@@ -71,7 +67,8 @@
                 <h2 class="hero-subtitle" id="hero-title">Full Stack Engineer</h2>
                 <h3 class="hero-desc" id="hero-desc">Based in San Francisco.</h3>
                 <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary">Download CV <i class="fas fa-download"></i></a>
+                    <a href="#projects" class="btn btn-primary">View Portfolio <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-outline" style="margin-left: 1rem;">Contact Me</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
@@ -80,74 +77,79 @@
         </div>
     </section>
 
-    <div class="container single-column">
-        <!-- Main Content information -->
-        <main class="main-content">
-
-            <!-- About Section -->
-            <section id="about" class="section">
-                <div class="section-header">
-                    <span class="section-subtitle">About Me</span>
-                    <h2 class="section-title">Know Me More</h2>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container about-container">
+            <div class="about-image-col">
+                <div class="about-img-frame">
+                    <img src="profile.png" alt="About" class="about-img-secondary">
                 </div>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h3 class="about-intro">I'm <span class="highlight" id="about-name">Alex Developer</span>, a Web
-                            Developer</h3>
-                        <p id="summary-text" class="summary-text">Loading...</p>
-                    </div>
-                    <div class="about-info" id="contact-info">
-                        <!-- Contact info injected here -->
-                    </div>
-                </div>
-                <!-- Skills moved inside About for better flow -->
+            </div>
+            <div class="about-content-col">
+                <span class="section-subtitle">About Me</span>
+                <h2 class="section-title">Why Choose Me?</h2>
+                <h3 class="about-intro">I'm <span class="highlight" id="about-name">Alex Developer</span>, a Web Developer</h3>
+                <p id="summary-text" class="summary-text">Loading...</p>
+                
                 <div class="skills-wrapper">
                     <h3>My Skills</h3>
                     <div class="skills-list" id="skills-section">
-                        <!-- Skills injected here -->
+                        <!-- Skills Progress Bars injected here -->
                     </div>
                 </div>
-            </section>
 
-            <section id="experience" class="section">
-                <div class="section-header">
-                    <span class="section-subtitle">Resume</span>
-                    <h2 class="section-title">Experience</h2>
+                <div class="about-info" id="contact-info">
+                     <!-- Contact info injected here -->
                 </div>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary">Download CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Split Timeline) -->
+    <section id="experience" class="section bg-gray">
+        <div class="container">
+             <div class="section-header">
+                <span class="section-subtitle">Resume</span>
+                <h2 class="section-title">Experience & Education</h2>
+            </div>
+            <div class="timeline-container">
                 <div id="experience-list" class="timeline">
                     <!-- Experience injected here -->
                 </div>
-                <div class="section-header" style="margin-top: 3rem;">
-                    <span class="section-subtitle">Education</span>
-                </div>
-                <div id="education-list" class="timeline Education">
-                    <!-- Education injected here -->
-                </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section id="projects" class="section">
-                <div class="section-header">
-                    <span class="section-subtitle">Portfolio</span>
-                    <h2 class="section-title">My Projects</h2>
-                </div>
-                <div id="projects-list" class="projects-grid">
-                    <!-- Projects injected here -->
-                </div>
-            </section>
-
-            <section id="contact" class="section">
-                <div class="section-header">
-                    <span class="section-subtitle">Contact</span>
-                    <h2 class="section-title">Get in Touch</h2>
-                </div>
-                <div class="contact-footer" id="footer-contact">
-                    <!-- Contact details reiterated here -->
-                </div>
-            </section>
-        </main>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Portfolio</span>
+                <h2 class="section-title">Recent Work</h2>
+            </div>
+            <div id="projects-list" class="projects-grid">
+                <!-- Projects injected here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+             <div class="section-header">
+                <span class="section-subtitle">Contact</span>
+                <h2 class="section-title text-white">Get in Touch</h2>
+            </div>
+            <div class="contact-footer" id="footer-contact">
+                <!-- Contact details reiterated here -->
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
-
 </html>

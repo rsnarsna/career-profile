@@ -105,6 +105,9 @@ function renderCV(data) {
 
     // --- Footer Contact ---
     renderFooterContact(data.profile);
+
+    // --- Footer Socials ---
+    renderFooterSocials(data.socials);
 }
 
 function renderFooterContact(profile) {
@@ -122,7 +125,23 @@ function renderFooterContact(profile) {
             <h3>Email Me</h3>
             <p>${profile.email}</p>
         </div>
+        <div class="footer-item">
+             <i class="fas fa-map-marker-alt"></i>
+            <h3>Location</h3>
+            <p>${profile.location}</p>
+        </div>
     `;
+}
+
+function renderFooterSocials(socials) {
+    const container = document.getElementById('footer-socials');
+    if (!container || !socials) return;
+
+    container.innerHTML = socials.map(item => `
+        <a href="${item.url}" target="_blank" title="${item.network}" aria-label="${item.network}">
+            <i class="${item.icon}"></i>
+        </a>
+    `).join('');
 }
 
 function safelySetText(id, text) {
@@ -136,17 +155,22 @@ function setupNavigation() {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.classList.add('sticky');
+            navbar.classList.add('scrolled');
         } else {
-            navbar.classList.remove('sticky');
+            navbar.classList.remove('scrolled');
         }
     });
 
-    // Mobile Menu Toggle (Simplified)
-    const btn = document.querySelector('.mobile-menu-btn');
-    if (btn) {
-        btn.addEventListener('click', () => {
-            // In a real app we'd toggle a class
+    // Auto-close Bootstrap navbar on link click (mobile)
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navCollapse = document.getElementById('navMenu');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navCollapse.classList.contains('show')) {
+                const toggler = document.querySelector('.navbar-toggler');
+                toggler.click(); // Close the menu
+            }
         });
-    }
+    });
 }

@@ -142,7 +142,8 @@ img {
 /* Hero Section */
 .hero-section {
     position: relative;
-    padding: 180px 0 100px;
+    padding: 120px 0 80px;
+    /* Reduced from 180px/100px */
     background-color: #fff;
     overflow: hidden;
 }

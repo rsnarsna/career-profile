@@ -1,0 +1,95 @@
+{
+    "profile": {
+        "name": "Alex Developer",
+        "title": "Full Stack Engineer",
+        "summary": "Passionate developer with 5+ years of experience in building scalable web applications. Expert in modern JavaScript frameworks and cloud-native solutions. Dedicated to writing clean, maintainable code.",
+        "email": "alex@example.com",
+        "phone": "+1 (555) 123-4567",
+        "location": "San Francisco, CA",
+        "website": "www.alexdev.com",
+        "avatar_url": "profile.png"
+    },
+    "socials": [
+        {
+            "network": "GitHub",
+            "url": "https://github.com",
+            "icon": "fab fa-github"
+        },
+        {
+            "network": "LinkedIn",
+            "url": "https://linkedin.com",
+            "icon": "fab fa-linkedin"
+        },
+        {
+            "network": "Twitter",
+            "url": "https://twitter.com",
+            "icon": "fab fa-twitter"
+        }
+    ],
+    "experience": [
+        {
+            "company": "Tech Solutions Inc.",
+            "role": "Senior Frontend Developer",
+            "duration": "2021 - Present",
+            "location": "San Francisco, CA",
+            "description": [
+                "Led a team of 5 developers in redesigning the core product dashboard.",
+                "Improved site performance by 40% through code splitting and lazy loading.",
+                "Mentored junior developers and established code quality standards."
+            ]
+        },
+        {
+            "company": "Creative Agency",
+            "role": "Web Developer",
+            "duration": "2018 - 2021",
+            "location": "New York, NY",
+            "description": [
+                "Developed responsive websites for high-profile clients.",
+                "Collaborated with designers to implement pixel-perfect UIs.",
+                "Integrated third-party APIs for payment processing and data visualization."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "State University",
+            "degree": "B.S. in Computer Science",
+            "duration": "2014 - 2018",
+            "location": "Boston, MA"
+        }
+    ],
+    "skills": [
+        "JavaScript (ES6+)",
+        "React",
+        "Node.js",
+        "HTML5 & CSS3",
+        "Python",
+        "AWS",
+        "Docker",
+        "Git"
+    ],
+    "projects": [
+        {
+            "title": "E-commerce Platform",
+            "description": "A full-featured online store built with Next.js and Stripe.",
+            "technologies": [
+                "Next.js",
+                "Stripe",
+                "Tailwind CSS"
+            ],
+            "link": "#",
+            "github": "#"
+        },
+        {
+            "title": "Task Manager App",
+            "description": "A productivity app with drag-and-drop support.",
+            "technologies": [
+                "React",
+                "Firebase",
+                "Redux"
+            ],
+            "link": "#",
+            "github": "#"
+        }
+    ]
+}

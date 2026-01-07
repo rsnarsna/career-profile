@@ -1,119 +1,168 @@
 {
     "profile": {
-        "name": "Alex Developer",
-        "title": "Full Stack Engineer",
-        "summary": "Passionate developer with 5+ years of experience in building scalable web applications. Expert in modern JavaScript frameworks and cloud-native solutions. Dedicated to writing clean, maintainable code.",
-        "email": "alex@example.com",
-        "phone": "+1 (555) 123-4567",
-        "location": "San Francisco, CA",
-        "website": "www.alexdev.com",
+        "name": "Narayanan S",
+        "title": "Software Developer & AI Engineer",
+        "summary": "Results-oriented Software Developer with experience in Python-based backend development and AI-enabled applications. Proficient in Python, Django, FastAPI, and RESTful APIs, with hands-on exposure to automation, LLM integration, and Linux environments. Demonstrated ability to build scalable backend services and practical software solutions.",
+        "email": "narayanansubramani14@gmail.com",
+        "phone": "+91 73395 70417",
+        "location": "Namakkal, India",
+        "website": "#",
         "avatar_url": "profile.png"
     },
     "socials": [
         {
             "network": "GitHub",
-            "url": "https://github.com",
+            "url": "https://github.com/Rsnarsna",
             "icon": "fab fa-github"
         },
         {
             "network": "LinkedIn",
-            "url": "https://linkedin.com",
+            "url": "https://linkedin.com/in/narayanan-s",
             "icon": "fab fa-linkedin"
         },
         {
-            "network": "Twitter",
-            "url": "https://twitter.com",
-            "icon": "fab fa-twitter"
+            "network": "Hugging Face",
+            "url": "https://huggingface.co/Rsnarsna",
+            "icon": "fas fa-brain"
+        },
+        {
+            "network": "Email",
+            "url": "mailto:narayanansubramani14@gmail.com",
+            "icon": "fas fa-envelope"
         }
     ],
     "experience": [
         {
-            "company": "Tech Solutions Inc.",
-            "role": "Senior Frontend Developer",
-            "duration": "2021 - Present",
-            "location": "San Francisco, CA",
+            "company": "Aerixnova Technologies",
+            "role": "Software / AI Automation Engineer",
+            "duration": "Jan 2025 – Dec 2025",
+            "location": "Remote / On-site",
             "description": [
-                "Leading the frontend team.",
-                "Optimizing React performance."
+                "Developed a Voice Outreach Lead Generation application using N8N automation.",
+                "Built automated lead generation workflows using N8N and LLM integrations.",
+                "Created an AI-based website generation tool using llms.txt concepts.",
+                "Implemented AI-driven automation pipelines for business and sales processes.",
+                "Integrated backend services with APIs, automation platforms, and AI models."
             ]
         },
         {
-            "company": "Alpha Corp",
-            "role": "Full Stack Engineer",
-            "duration": "2018 - 2021",
-            "location": "New York, NY",
+            "company": "Redmind Technologies",
+            "role": "Software Developer Intern",
+            "duration": "Mar 2024 – Dec 2024",
+            "location": "On-site",
             "description": [
-                "Migrated monolith to microservices.",
-                "Implemented CI/CD pipelines."
-            ]
-        },
-        {
-            "company": "Beta Systems",
-            "role": "Backend Developer",
-            "duration": "2016 - 2018",
-            "location": "Austin, TX",
-            "description": [
-                "Designed scalable APIs.",
-                "Managed PostgreSQL databases."
+                "Developed backend services using Python and FastAPI.",
+                "Built an Email Automation system using Large Language Models.",
+                "Designed and deployed a Sentiment Analysis API.",
+                "Implemented LLM-based applications including Whisper-large-v3 and Sales Copilot use cases.",
+                "Created and managed REST APIs for AI-driven applications.",
+                "Worked with Linux environments and API testing tools like Postman."
             ]
         }
     ],
     "education": [
         {
-            "institution": "State University",
-            "degree": "B.S. in Computer Science",
-            "duration": "2014 - 2018",
-            "location": "Boston, MA"
+            "institution": "SRG Engineering College",
+            "degree": "B.E. Computer Science",
+            "duration": "2020 – 2024",
+            "location": "Namakkal"
+        },
+        {
+            "institution": "Government Higher Secondary School",
+            "degree": "HSC",
+            "duration": "2018 – 2020",
+            "location": "Konur"
         }
     ],
     "skills": [
-        "JavaScript",
-        "React",
-        "Node.js",
         "Python",
-        "AWS",
+        "Django",
+        "FastAPI",
+        "Flask",
+        "Next.js",
+        "React",
+        "JavaScript",
+        "HTML/CSS",
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "SQLite",
+        "REST APIs",
+        "N8N Automation",
+        "LLMs",
+        "Prompt Engineering",
+        "Linux (Kali/Ubuntu)",
         "Docker",
         "Git",
-        "CI/CD"
+        "GitHub Actions",
+        "Cybersecurity",
+        "Networking",
+        "Postman"
     ],
     "projects": [
         {
-            "title": "Loan Prediction System",
-            "description": "AI for loan approval.",
+            "title": "Phi-3 Web API",
+            "description": "Deployed a Phi-3 model as a web-based chat API using Docker and FastAPI.",
             "technologies": [
-                "Python",
+                "FastAPI",
+                "Docker",
+                "Phi-3",
+                "LLM"
+            ],
+            "link": "https://rsnarsna-phi3-docker-with-fastapi.hf.space/chat",
+            "github": "#"
+        },
+        {
+            "title": "Sentiment Analysis API",
+            "description": "Created a REST API for text sentiment analysis using FastAPI and machine learning models.",
+            "technologies": [
+                "FastAPI",
                 "ML",
                 "Hugging Face"
             ],
-            "link": "https://rsnarsna-loan-prediction-system.hf.space",
+            "link": "https://huggingface.co/spaces/Rsnarsna/sentiment_analyses",
             "github": "#"
         },
         {
-            "title": "E-commerce Platform",
-            "description": "Online store with Stripe.",
+            "title": "Email Automation Using LLMs",
+            "description": "Automated email generation and response system powered by language models.",
             "technologies": [
-                "Next.js",
-                "Stripe"
+                "LLM",
+                "Python",
+                "Automation"
+            ],
+            "link": "https://drive.google.com/drive/folders/1wZvw7YKsbexD057WPin6oEPkKVKz1B9z?usp=sharing",
+            "github": "#"
+        },
+        {
+            "title": "Voice Outreach System",
+            "description": "Built an automated voice-based lead generation application using n8n workflows.",
+            "technologies": [
+                "n8n",
+                "Voice AI",
+                "Automation"
             ],
             "link": "#",
             "github": "#"
         },
         {
-            "title": "Task Manager App",
-            "description": "Productivity tool.",
+            "title": "RedmindGPT Backend",
+            "description": "LLM-powered backend system for AI-assisted interactions using FastAPI.",
             "technologies": [
-                "React",
-                "Firebase"
+                "FastAPI",
+                "LLM",
+                "Backend"
             ],
             "link": "#",
             "github": "#"
         },
         {
-            "title": "Weather Dashboard",
-            "description": "Live weather updates.",
+            "title": "AI Website Generator",
+            "description": "AI-driven website content generation tool integrated with automation workflows.",
             "technologies": [
-                "OpenWeatherAPI",
-                "JS"
+                "n8n",
+                "llms.txt",
+                "AI"
             ],
             "link": "#",
             "github": "#"

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchData() {
     try {
-        const response = await fetch('data.json');
+        const response = await fetch(`data.json?t=${new Date().getTime()}`);
         if (!response.ok) throw new Error('Failed to load data');
         const data = await response.json();
         renderCV(data);
@@ -32,8 +32,8 @@ function renderCV(data) {
         heroImg.src = data.profile.avatar_url;
     }
     const aboutImg = document.querySelector('.about-img-secondary');
-    if (aboutImg && data.profile.avatar_url) {
-        aboutImg.src = data.profile.avatar_url;
+    if (aboutImg && (data.profile.about_avatar_url || data.profile.avatar_url)) {
+        aboutImg.src = data.profile.about_avatar_url || data.profile.avatar_url;
     }
 
     // --- Socials ---

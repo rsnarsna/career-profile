@@ -208,6 +208,7 @@ img {
     width: clamp(250px, 30vw, 450px);
     height: clamp(250px, 30vw, 450px);
     object-fit: cover;
+    object-position: top;
     border-radius: 50%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border: 15px solid #fff;
@@ -263,6 +264,14 @@ img {
     align-items: center;
 }
 
+.skills-row {
+    width: 100%;
+    max-width: 1140px;
+    margin: 3rem auto 0;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
 .about-img-frame {
     position: relative;
     z-index: 1;
@@ -281,6 +290,9 @@ img {
 }
 
 .about-img-secondary {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
     border-radius: 5px;
     box-shadow: var(--shadow);
 }

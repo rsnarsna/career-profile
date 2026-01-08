@@ -1,13 +1,14 @@
 {
     "profile": {
-        "name": "Narayanan S",
+        "name": "Narayanan",
         "title": "Software Developer & AI Engineer",
         "summary": "Results-oriented Software Developer with experience in Python-based backend development and AI-enabled applications. Proficient in Python, Django, FastAPI, and RESTful APIs, with hands-on exposure to automation, LLM integration, and Linux environments. Demonstrated ability to build scalable backend services and practical software solutions.",
         "email": "narayanansubramani14@gmail.com",
         "phone": "+91 73395 70417",
         "location": "Namakkal, India",
         "website": "#",
-        "avatar_url": "profile.png"
+        "avatar_url": "profile.jpg",
+        "about_avatar_url": "image.png"
     },
     "socials": [
         {
@@ -17,7 +18,7 @@
         },
         {
             "network": "LinkedIn",
-            "url": "https://linkedin.com/in/narayanan-s",
+            "url": "https://www.linkedin.com/in/mr-narayanan/",
             "icon": "fab fa-linkedin"
         },
         {

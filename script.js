@@ -5,12 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchData() {
     try {
-        const response = await fetch(`data.json?t=${new Date().getTime()}`);
-        if (!response.ok) throw new Error('Failed to load data');
-        const data = await response.json();
-        renderCV(data);
-    } catch (error) {
-        console.error('Error fetching CV data:', error);
+        const res = await fetch(`data.json?t=${Date.now()}`);
+        if (!res.ok) throw new Error('Failed to load data');
+        renderCV(await res.json());
+    } catch (err) {
+        console.error('Error loading portfolio data:', err);
     }
 }
 
@@ -18,158 +17,127 @@ function renderCV(data) {
     if (!data) return;
 
     // --- Hero ---
-    safelySetText('hero-name', data.profile.name);
-    safelySetText('about-name', data.profile.name);
-    safelySetText('hero-title', data.profile.title);
+    setText('hero-name', data.profile.name);
+    setText('hero-title', data.profile.title);
+    setText('about-name', data.profile.name);
+    setText('summary-text', data.profile.summary);
 
-    const locationEl = document.getElementById('hero-desc');
-    if (locationEl && data.profile.location) {
-        locationEl.textContent = `Based in ${data.profile.location}`;
+    const heroDesc = document.getElementById('hero-desc');
+    if (heroDesc) heroDesc.textContent = `Based in ${data.profile.location}`;
+
+    setImage('hero-image', data.profile.avatar_url, `${data.profile.name} - ${data.profile.title}`);
+    setImage('.about-img-secondary', data.profile.about_avatar_url || data.profile.avatar_url, `About ${data.profile.name}`);
+
+    // --- Skills ---
+    const skillsEl = document.getElementById('skills-section');
+    if (skillsEl && data.skills) {
+        skillsEl.innerHTML = data.skills
+            .map(s => `<span class="skill-badge">${s}</span>`)
+            .join('');
     }
 
-    const heroImg = document.getElementById('hero-image');
-    if (heroImg && data.profile.avatar_url) {
-        heroImg.src = data.profile.avatar_url;
-    }
-    const aboutImg = document.querySelector('.about-img-secondary');
-    if (aboutImg && (data.profile.about_avatar_url || data.profile.avatar_url)) {
-        aboutImg.src = data.profile.about_avatar_url || data.profile.avatar_url;
-    }
-
-    // --- Socials ---
-    const navSocials = document.getElementById('nav-socials');
-    if (navSocials && data.socials) {
-        navSocials.innerHTML = data.socials.map(item => `
-            <a href="${item.url}" target="_blank" title="${item.network}"><i class="${item.icon}"></i></a>
-        `).join('');
-    }
-
-    // --- About & Contact Info ---
-    safelySetText('summary-text', data.profile.summary);
-
-    const contactInfoArray = [
-        { label: 'Name', value: data.profile.name },
-        { label: 'Email', value: `<a href="mailto:${data.profile.email}">${data.profile.email}</a>` },
-        { label: 'Location', value: data.profile.location }
-    ];
-
-    const contactInfoEl = document.getElementById('contact-info');
-    if (contactInfoEl) {
-        contactInfoEl.innerHTML = contactInfoArray.map(item => `
-            <div class="contact-item">
-                <b>${item.label}:</b>
-                <span>${item.value}</span>
+    // --- Experience ---
+    const expEl = document.getElementById('experience-list');
+    if (expEl && data.experience) {
+        expEl.innerHTML = data.experience.map(job => `
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-date">${job.duration}</span>
+                    <h3 class="h6 fw-semibold text-white mb-1">${job.role}</h3>
+                    <p class="small mb-2" style="color:var(--accent)">${job.company}</p>
+                    <p class="small text-secondary mb-0">${job.description[0]}</p>
+                </div>
             </div>
         `).join('');
     }
 
-    // --- Skills (Tags List) ---
-    const skillsList = document.getElementById('skills-section');
-    if (skillsList && data.skills) {
-        skillsList.innerHTML = data.skills.map(skill => `
-            <span class="skill-tag">${skill}</span>
-        `).join('');
-    }
-
-    // --- Experience (Split Timeline) ---
-    const expList = document.getElementById('experience-list');
-    if (expList && data.experience) {
-        expList.innerHTML = data.experience.map(job => `
+    // --- Education (appended to same timeline) ---
+    if (expEl && data.education) {
+        expEl.innerHTML += data.education.map(edu => `
             <div class="timeline-item">
-                <div class="item-content">
-                    <span class="item-date">${job.duration}</span>
-                    <h3 class="item-title">${job.role}</h3>
-                    <h4 class="item-subtitle">${job.company}</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">${job.description[0]}...</p>
+                <div class="timeline-card">
+                    <span class="timeline-date">${edu.duration}</span>
+                    <h3 class="h6 fw-semibold text-white mb-1">${edu.degree}</h3>
+                    <p class="small mb-0" style="color:var(--accent)">${edu.institution}</p>
                 </div>
             </div>
         `).join('');
     }
 
     // --- Projects ---
-    const projList = document.getElementById('projects-list');
-    if (projList && data.projects) {
-        projList.innerHTML = data.projects.map(proj => `
-            <div class="project-card">
-                <h3 class="project-title">${proj.title}</h3>
-                <p class="text-muted">${proj.description}</p>
-                
-                <div style="margin: 1rem 0;">
-                    ${proj.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+    const projEl = document.getElementById('projects-list');
+    if (projEl && data.projects) {
+        projEl.innerHTML = data.projects.map(proj => `
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card">
+                    <h3 class="h6 fw-semibold text-white mb-2">${proj.title}</h3>
+                    <p class="small text-secondary flex-grow-1 mb-3">${proj.description}</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        ${proj.technologies.map(t => `<span class="tech-badge">${t}</span>`).join('')}
+                    </div>
+                    ${proj.link && proj.link !== '#'
+                        ? `<a href="${proj.link}" target="_blank" rel="noopener" class="project-link">View Details <i class="fas fa-arrow-right ms-1"></i></a>`
+                        : ''}
                 </div>
-
-                ${proj.link ? `<a href="${proj.link}" target="_blank" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>` : ''}
             </div>
         `).join('');
     }
 
     // --- Footer Contact ---
-    renderFooterContact(data.profile);
+    const footerContact = document.getElementById('footer-contact');
+    if (footerContact) {
+        const items = [
+            { icon: 'fas fa-phone-alt', label: 'Call Me',     value: data.profile.phone },
+            { icon: 'fas fa-envelope',  label: 'Email Me',    value: data.profile.email },
+            { icon: 'fas fa-map-marker-alt', label: 'Location', value: data.profile.location },
+        ];
+        footerContact.innerHTML = items.map(item => `
+            <div class="col-md-4 text-center">
+                <i class="${item.icon} contact-item-icon"></i>
+                <h3 class="h6 fw-semibold text-white mb-1">${item.label}</h3>
+                <p class="small text-secondary mb-0">${item.value}</p>
+            </div>
+        `).join('');
+    }
 
     // --- Footer Socials ---
-    renderFooterSocials(data.socials);
+    const socialsEl = document.getElementById('footer-socials');
+    if (socialsEl && data.socials) {
+        socialsEl.innerHTML = data.socials.map(s => `
+            <a href="${s.url}" target="_blank" rel="noopener" class="social-btn" title="${s.network}" aria-label="${s.network}">
+                <i class="${s.icon}"></i>
+            </a>
+        `).join('');
+    }
 }
 
-function renderFooterContact(profile) {
-    const footer = document.getElementById('footer-contact');
-    if (!footer) return;
-
-    footer.innerHTML = `
-        <div class="footer-item">
-            <i class="fas fa-phone-alt"></i>
-            <h3>Call Me</h3>
-            <p>${profile.phone}</p>
-        </div>
-        <div class="footer-item">
-             <i class="fas fa-envelope"></i>
-            <h3>Email Me</h3>
-            <p>${profile.email}</p>
-        </div>
-        <div class="footer-item">
-             <i class="fas fa-map-marker-alt"></i>
-            <h3>Location</h3>
-            <p>${profile.location}</p>
-        </div>
-    `;
-}
-
-function renderFooterSocials(socials) {
-    const container = document.getElementById('footer-socials');
-    if (!container || !socials) return;
-
-    container.innerHTML = socials.map(item => `
-        <a href="${item.url}" target="_blank" title="${item.network}" aria-label="${item.network}">
-            <i class="${item.icon}"></i>
-        </a>
-    `).join('');
-}
-
-function safelySetText(id, text) {
+// --- Helpers ---
+function setText(id, value) {
     const el = document.getElementById(id);
-    if (el) el.textContent = text;
+    if (el && value) el.textContent = value;
 }
 
-// --- Navigation & Scroll Logic ---
+function setImage(selector, src, alt) {
+    if (!src) return;
+    const el = selector.startsWith('#')
+        ? document.getElementById(selector.slice(1))
+        : document.querySelector(selector);
+    if (el) { el.src = src; if (alt) el.alt = alt; }
+}
+
+// --- Navbar scroll + mobile auto-close ---
 function setupNavigation() {
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Auto-close Bootstrap navbar on link click (mobile)
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const navCollapse = document.getElementById('navMenu');
-
-    navLinks.forEach(link => {
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
         link.addEventListener('click', () => {
             if (navCollapse.classList.contains('show')) {
-                const toggler = document.querySelector('.navbar-toggler');
-                toggler.click(); // Close the menu
+                document.querySelector('.navbar-toggler').click();
             }
         });
     });

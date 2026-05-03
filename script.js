@@ -24,7 +24,7 @@ function renderCV(data) {
 
     const locationEl = document.getElementById('hero-desc');
     if (locationEl && data.profile.location) {
-        locationEl.textContent = `Based in ${data.profile.location}.`;
+        locationEl.textContent = `Based in ${data.profile.location}`;
     }
 
     const heroImg = document.getElementById('hero-image');
